@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ملخص خصائص CSS -  ريناد اللحياني </title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <title>خريطة مفاهيم خصائص لغة CSS - إعداد الطالبة: ريناد اللحياني</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #FAF5FF;
-            --main-title: #7C3AED;
+            --bg-page: #F4F6F9;
+            --primary: #5B21B6;
+            --primary-light: #DDD6FE;
+            --text-dark: #1E293B;
+            --text-muted: #475569;
             --card-bg: #FFFFFF;
-            --text-dark: #374151;
             
-            /* ألوان الأقسام الستة للأهداف */
-            --c1: #EC4899;
-            --c2: #3B82F6;
-            --c3: #8B5CF6;
-            --c4: #10B981;
-            --c5: #F59E0B;
-            --c6: #6366F1;
+            /* ألوان أفرع الخريطة */
+            --c-bg: #DB2777;
+            --c-border: #2563EB;
+            --c-margin: #7C3AED;
+            --c-selectors: #059669;
+            --c-div: #D97706;
+            --c-goals: #4F46E5;
         }
 
         * {
@@ -29,106 +31,175 @@
         }
 
         body {
-            background-color: var(--bg-color);
+            background-color: var(--bg-page);
             color: var(--text-dark);
-            padding: 30px 15px;
+            padding: 25px 15px;
             direction: rtl;
+            line-height: 1.6;
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-            background: linear-gradient(135deg, #7C3AED, #EC4899);
-            color: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.2);
-        }
-
-        .header h1 {
-            font-size: 2rem;
-            font-weight: 900;
-            margin-bottom: 8px;
-        }
-
-        .signature {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.25);
-            padding: 6px 16px;
-            border-radius: 20px;
-            margin-top: 10px;
-            font-size: 0.95rem;
-            font-weight: 700;
-        }
-
-        .grid-container {
-            max-width: 1200px;
+        .container {
+            max-width: 1300px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 20px;
         }
 
-        .card {
+        /* الهيدر الرسمي */
+        header {
+            background: #FFFFFF;
+            border-top: 6px solid var(--primary);
+            padding: 25px 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .header-titles h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .header-titles p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .student-info {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            border: 1px solid rgba(91, 33, 182, 0.2);
+        }
+
+        /* شبكة الخريطة */
+        .mindmap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 25px;
+        }
+
+        .branch-card {
             background: var(--card-bg);
             border-radius: 16px;
-            padding: 22px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-            border-top: 6px solid var(--card-color);
-            transition: transform 0.2s ease;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            border-top: 6px solid var(--branch-color);
+            position: relative;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--card-color);
-            margin-bottom: 15px;
+        .branch-header {
             display: flex;
             align-items: center;
             gap: 10px;
-            border-bottom: 2px dashed #F3F4F6;
-            padding-bottom: 8px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--branch-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #E2E8F0;
         }
 
-        ul {
-            list-style: none;
+        .node-group {
+            margin-bottom: 18px;
+            background: #F8FAFC;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border-right: 4px solid var(--branch-color);
         }
 
-        li {
-            margin-bottom: 10px;
-            background: #F9FAFB;
-            padding: 10px 12px;
-            border-radius: 10px;
-            font-size: 0.9rem;
-            color: #4B5563;
-            border-right: 3px solid var(--card-color);
-        }
-
-        li strong {
-            color: #1F2937;
-            display: inline-block;
-            margin-left: 5px;
-        }
-
-        .code {
+        .node-title {
+            font-weight: 700;
+            color: #0F172A;
+            font-size: 1.05rem;
+            margin-bottom: 6px;
             display: block;
-            background: #1E1E1E;
-            color: #4EC9B0;
+        }
+
+        .node-desc {
+            font-size: 0.93rem;
+            color: var(--text-muted);
+        }
+
+        ul.sub-list {
+            list-style: square;
+            margin-right: 20px;
+            margin-top: 6px;
+            font-size: 0.9rem;
+            color: #334155;
+        }
+
+        ul.sub-list li {
+            margin-bottom: 4px;
+        }
+
+        /* تنسيق الجداول والأكواد داخل البطاقات */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.88rem;
+        }
+
+        .data-table th, .data-table td {
+            border: 1px solid #E2E8F0;
             padding: 6px 10px;
-            border-radius: 6px;
+            text-align: right;
+        }
+
+        .data-table th {
+            background-color: #EDF2F7;
+            color: #1E293B;
+            font-weight: 700;
+        }
+
+        .code-block {
+            background: #0F172A;
+            color: #38BDF8;
+            padding: 8px 12px;
+            border-radius: 8px;
             font-family: monospace;
             direction: ltr;
             text-align: left;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             margin-top: 6px;
+            overflow-x: auto;
+        }
+
+        .code-inline {
+            background: #E2E8F0;
+            color: #0F172A;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            direction: ltr;
+            display: inline-block;
+            font-size: 0.85rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid #E2E8F0;
         }
 
         @media (max-width: 768px) {
-            .grid-container {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .mindmap-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -136,81 +207,599 @@
 </head>
 <body>
 
-    <div class="header">
-        <h1>🗺️ خريطة مفاهيم الوحدة الخامسة (خصائص CSS)</h1>
-        <p>المرجع المختصر والشامل للمذاكرة السريعة</p>
-        <div class="signature">✨ إعداد الطالبة: ريناد اللحياني ✨</div>
-    </div>
+    <div class="container">
+        <!-- الهيدر الرسمي -->
+        <header>
+            <div class="header-titles">
+                <h1>خريطة مفاهيم الوحدة الخامسة: خصائص لغة CSS</h1>
+                <p>مقرر مبادئ برمجة صفحات الإنترنت - الكلية التقنية للبنات بمكة المكرمة</p>
+            </div>
+            <div class="student-info">
+                إعداد الطالبة: ريناد اللحياني
+            </div>
+        </header>
 
-    <div class="grid-container">
+        <!-- شبكة الخريطة التفصيلية -->
+        <div class="mindmap-grid">
 
-        <!-- 1. الخلفيات -->
-        <div class="card" style="--card-color: var(--c1);">
-            <div class="card-title"><span>🎨</span> 1. خصائص الخلفية (Background)</div>
-            <ul>
-                <li><strong>background-color:</strong> لتحديد لون الخلفية (بالاسم، السداسي #، أو RGB)[span_0](start_span)[span_0](end_span)[span_1](start_span)[span_1](end_span).</li>
-                <li><strong>background-image:</strong> لإدراج صورة كخلفية عبر <span class="code">url('img.jpg')</span>[span_2](start_span)[span_2](end_span).</li>
-                <li><strong>background-repeat:</strong> تكرار الصورة (<span class="code">repeat-x</span>, <span class="code">repeat-y</span>, <span class="code">repeat</span>, <span class="code">no-repeat</span>)[span_3](start_span)[span_3](end_span).</li>
-                <li><strong>background-position:</strong> مكان الصورة (تعمل مع no-repeat) مثل <span class="code">right top</span> أو <span class="code">50% 25%</span>[span_4](start_span)[span_4](end_span)[span_5](start_span)[span_5](end_span).</li>
-                <li><strong>background-attachment:</strong> تثبيت الخلفية بـ <span class="code">fixed</span> أو تحريكها بـ <span class="code">scroll</span>[span_6](start_span)[span_6](end_span).</li>
-            </ul>
+            <!-- 1. أهداف الوحدة (كاملة) -->
+            <div class="branch-card" style="--branch-color: var(--c-goals);">
+                <div class="branch-header">
+                    <span>🎯</span>
+                    <span>أهداف الوحدة الخامسة</span>
+                </div>
+                <div class="node-group">
+                    <span class="node-title">الأهداف التفصيلية للمحاضرة:</span>
+                    <ul class="sub-list">
+                        <li>التعرف على خصائص تنسيق الخلفية[span_0](start_span)[span_0](end_span)[span_1](start_span)[span_1](end_span).</li>
+                        <li>استنتاج خصائص تنسيق الحدود[span_2](start_span)[span_2](end_span)[span_3](start_span)[span_3](end_span).</li>
+                        <li>استنتاج مفهوم الهوامش وأنواعها (الداخلية والخارجية)[span_4](start_span)[span_4](end_span)[span_5](start_span)[span_5](end_span)[span_6](start_span)[span_6](end_span).</li>
+                        <li>اكتساب المهارة في تطبيق تنسيق الحدود والخلفيات والهوامش عملياً[span_7](start_span)[span_7](end_span)[span_8](start_span)[span_8](end_span)[span_9](start_span)[span_9](end_span).</li>
+                        <li>التعرف على خاصية ID و Class وكيفية استخدامها[span_10](start_span)[span_10](end_span)[span_11](start_span)[span_11](end_span)[span_12](start_span)[span_12](end_span).</li>
+                        <li>التعرف على وسم DIV واستخداماته في تقسيم الصفحات[span_13](start_span)[span_13](end_span)[span_14](start_span)[span_14](end_span)[span_15](start_span)[span_15](end_span).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 2. خصائص الخلفية (Background) - كاملة بكل التفاصيل -->
+            <div class="branch-card" style="--branch-color: var(--c-bg);">
+                <div class="branch-header">
+                    <span>🎨</span>
+                    <span>خصائص الخلفية (background)</span>
+                </div>
+                
+                <div class="node-group">
+                    <span class="node-title">أهمية ومفهوم الخلفية:</span>
+                    <span class="node-desc">تحسين المظهر العام، جعل المحتوى أكثر وضوحاً وجاذبية، وإبراز العناصر المهمة[span_16](start_span)[span_16](end_span). تشمل خلفية الصفحة <code>body</code> وخلفية العناصر كالفقرات والعناوين[span_17](start_span)[span_17](end_span).</span>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">1. لون الخلفية (background-color):</span>
+                    <span class="node-desc">تُستخدم لتحديد لون خلفية العنصر[span_18](start_span)[span_18](end_span)[span_19](start_span)[span_19](end_span). طرق التحديد:</span>
+                    <ul class="sub-list">
+                        <li><strong>اسم اللون:</strong> <span class="code-inline">red</span>[span_20](start_span)[span_20](end_span)</li>
+                        <li><strong>الرمز السداسي عشري (Hex):</strong> مسبوق بـ # مثل <span class="code-inline">#ff0000</span>[span_21](start_span)[span_21](end_span)</li>
+                        <li><strong>نسب ألوان RGB:</strong> مثل <span class="code-inline">rgb(100%, 40%, 20%)</span>[span_22](start_span)[span_22](end_span)</li>
+                        <li><strong>قيم RGBA:</strong> تدعم الشفافية مثل <span class="code-inline">rgba(255, 0, 0, 0.5)</span>[span_23](start_span)[span_23](end_span).</li>
+                    </ul>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">2. صورة الخلفية (background-image):</span>
+                    <span class="node-desc">لإدراج صورة وفق الصيغة العامة:</span>
+                    <div class="code-block">background-image: url('image.jpg');</div>[span_24](start_span)[span_24](end_span)
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">3. تكرار صورة الخلفية (background-repeat):</span>
+                    <ul class="sub-list">
+                        <li><span class="code-inline">repeat-x</span>: تكرار أفقي فقط[span_25](start_span)[span_25](end_span).</li>
+                        <li><span class="code-inline">repeat-y</span>: تكرار عمودي فقط[span_26](start_span)[span_26](end_span).</li>
+                        <li><span class="code-inline">repeat</span>: تكرار أفقي وعمودي[span_27](start_span)[span_27](end_span).</li>
+                        <li><span class="code-inline">no-repeat</span>: عدم تكرار الصورة[span_28](start_span)[span_28](end_span).</li>
+                    </ul>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">4. موضع وتثبيت الصورة:</span>
+                    <ul class="sub-list">
+                        <li><strong>background-position:</strong> لا تعمل إلا إذا كان التكرار <span class="code-inline">no-repeat</span>[span_29](start_span)[span_29](end_span). تأخذ كلمات مفتاحية (مثل <span class="code-inline">right top</span>, <span class="code-inline">center center</span>, <span class="code-inline">left bottom</span>) أو إحداثيات نسب ومقاسات (مثل <span class="code-inline">2cm 2cm</span> أو <span class="code-inline">50% 25%</span>)[span_30](start_span)[span_30](end_span).</li>
+                        <li><strong>background-attachment:</strong> <span class="code-inline">fixed</span> (تبقى ثابتة عند التمرير) أو <span class="code-inline">scroll</span> (تتحرك مع النص)[span_31](start_span)[span_31](end_span).</li>
+                    </ul>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">الصيغة المختصرة (Shorthand):</span>
+                    <div class="code-block">background: [color] [image] [repeat] [attachment] [position];</div>[span_32](start_span)[span_32](end_span)
+                    <div class="code-block">body { background: pink url('tvtc.jpg') no-repeat fixed right top; }</div>[span_33](start_span)[span_33](end_span)
+                </div>
+            </div>
+
+            <!-- 3. خصائص الحدود (Border) - كاملة -->
+            <div class="branch-card" style="--branch-color: var(--c-border);">
+                <div class="branch-header">
+                    <span>📐</span>
+                    <span>خصائص الحدود (Border)</span>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">وظيفة الخاصية:</span>
+                    <span class="node-desc">وضع حدود لأي عنصر والتحكم بلونه، وحجمه، ونمطه[span_34](start_span)[span_34](end_span).</span>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">عناصر الخصائص الأساسية:</span>
+                    <ul class="sub-list">
+                        <li><strong>border-style (نمط الحد):</strong> <span class="code-inline">dotted</span> (منقط)، <span class="code-inline">dashed</span> (متقطع)، <span class="code-inline">solid</span> (خط مستمر)، <span class="code-inline">double</span> (مزدوج)[span_35](start_span)[span_35](end_span).</li>
+                        <li><strong>border-color (لون الحد):</strong> تحديد اللون لجميع الجوانب بأسماء الألوان، الـ Hex، أو RGB[span_36](start_span)[span_36](end_span).</li>
+                        <li><strong>border-width (سمك الحد):</strong> بكلمات جاهزة (<span class="code-inline">thin</span>, <span class="code-inline">medium</span>, <span class="code-inline">thick</span>) أو بأرقام مع وحدات قياس مثل <span class="code-inline">px</span>, <span class="code-inline">pt</span>, <span class="code-inline">cm</span>, <span class="code-inline">em</span>[span_37](start_span)[span_37](end_span).</li>
+                    </ul>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">الصيغة المختصرة للحدود:</span>
+                    <span class="node-desc">الترتيب: (العرض - النمط - اللون)</span>
+                    <div class="code-block">h1 { border: 10px dotted blue; }</div>[span_38](start_span)[span_38](end_span)
+                </div>
+            </div>
+
+            <!-- 4. خصائص الهوامش (Margin & Padding) - كاملة -->
+            <div class="branch-card" style="--branch-color: var(--c-margin);">
+                <div class="branch-header">
+                    <span>📦</span>
+                    <span>خصائص الهوامش (Margin & Padding)</span>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">أنواع الهوامش:</span>
+                    <ul class="sub-list">
+                        <li><strong>الهامش الخارجي (Margin):</strong> المسافة بين العنصر والعناصر المحيطة به في الصفحة[span_39](start_span)[span_39](end_span).</li>
+                        <li><strong>الهامش الداخلي (Padding):</strong> المسافة بين محتوى العنصر وحدوده[span_40](start_span)[span_40](end_span).</li>
+                    </ul>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">صيغ وقواعد كتابة القيم:</span>
+                    <ul class="sub-list">
+                        <li><strong>قيمة واحدة:</strong> تُطبق على جميع الجهات الأربع (مثال: <span class="code-inline">padding: 30px;</span>)[span_41](start_span)[span_41](end_span).</li>
+                        <li><strong>قيمتان:</strong> القيمة الأولى عمودياً (أعلى/أسفل) والثانية أفقياً (يسار/يمين) (مثال: <span class="code-inline">padding: 20px 10px;</span>)[span_42](start_span)[span_42](end_span).</li>
+                        <li><strong>أربع قيم:</strong> باتجاه عقارب الساعة: (أعلى - يمين - أسفل - يسار) (مثال: <span class="code-inline">margin: 10px 20px 50px 30px;</span>)[span_43](start_span)[span_43](end_span).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 5. المعرفات والفئات (Class & ID) - كاملة -->
+            <div class="branch-card" style="--branch-color: var(--c-selectors);">
+                <div class="branch-header">
+                    <span>🏷️</span>
+                    <span>تجميع العناصر (Class & ID)</span>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">المشكلة والهدف:</span>
+                    <span class="node-desc">تُستخدم لحل مشكلة تطبيق التنسيق على جميع عناوين أو فقرات الصفحة دفعة واحدة، وتسمح بتنسيق عناصر محددة دون غيرها[span_44](start_span)[span_44](end_span).</span>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">المقارنة بين الفئة والمعرف:</span>
+                    <table class="data-table">
+                        <tr>
+                            <th>الخاصية</th>
+                            <th>Class (فئة)</th>
+                            <th>ID (معرف)</th>
+                        </tr>
+    <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خريطة مفاهيم خصائص لغة CSS - إعداد الطالبة: ريناد اللحياني</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-page: #F4F6F9;
+            --primary: #5B21B6;
+            --primary-light: #DDD6FE;
+            --text-dark: #1E293B;
+            --text-muted: #475569;
+            --card-bg: #FFFFFF;
+            
+            /* ألوان أفرع الخريطة */
+            --c-bg: #DB2777;
+            --c-border: #2563EB;
+            --c-margin: #7C3AED;
+            --c-selectors: #059669;
+            --c-div: #D97706;
+            --c-goals: #4F46E5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            padding: 25px 15px;
+            direction: rtl;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* الهيدر الرسمي */
+        header {
+            background: #FFFFFF;
+            border-top: 6px solid var(--primary);
+            padding: 25px 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .header-titles h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .header-titles p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .student-info {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            border: 1px solid rgba(91, 33, 182, 0.2);
+        }
+
+        /* شبكة الخريطة */
+        .mindmap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 25px;
+        }
+
+        .branch-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            border-top: 6px solid var(--branch-color);
+            position: relative;
+        }
+
+        .branch-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--branch-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #E2E8F0;
+        }
+
+        .node-group {
+            margin-bottom: 18px;
+            background: #F8FAFC;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border-right: 4px solid var(--branch-color);
+        }
+
+        .node-title {
+            font-weight: 700;
+            color: #0F172A;
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .node-desc {
+            font-size: 0.93rem;
+            color: var(--text-muted);
+        }
+
+        ul.sub-list {
+            list-style: square;
+            margin-right: 20px;
+            margin-top: 6px;
+            font-size: 0.9rem;
+            color: #334155;
+        }
+
+        ul.sub-list li {
+            margin-bottom: 4px;
+        }
+
+        /* تنسيق الجداول والأكواد داخل البطاقات */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.88rem;
+        }
+
+        .data-table th, .data-table td {
+            border: 1px solid #E2E8F0;
+            padding: 6px 10px;
+            text-align: right;
+        }
+
+        .data-table th {
+            background-color: #EDF2F7;
+            color: #1E293B;
+            font-weight: 700;
+        }
+
+        .code-block {
+            background: #0F172A;
+            color: #38BDF8;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-family: monospace;
+            direction: ltr;
+            text-align: left;
+            font-size: 0.85rem;
+            margin-top: 6px;
+            overflow-x: auto;
+        }
+
+        .code-inline {
+            background: #E2E8F0;
+            color: #0F172A;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            direction: ltr;
+            display: inline-block;
+            font-size: 0.85rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid #E2E8F0;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .mindmap-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- الهيدر الرسمي -->
+        <header>
+            <div class="header-titles">
+                <h1>خريطة مفاهيم الوحدة الخامسة: خصائص لغة CSS</h1>
+                <p>مقرر مبادئ برمجة صفحات الإنترنت - الكلية التقنية للبنات بمكة المكرمة</p>
+            </div>
+            <div class="student-info">
+                إعداد الطالبة: ريناد اللحياني
+            </div>
+        </header>
+
+        <!-- شبكة الخريطة التفصيلية -->
+        <div class="mindmap-grid">
+
+            <!-- 1. أهداف الوحدة (كاملة) -->
+            <div class="branch-card" style="--branch-color: var(--c-goals);">
+                <div class="branch-header">
+                    <span>🎯</span>
+                    <span>أهداف الوحدة الخامسة</span>
+                </div>
+                <div class="node-group">
+                    <span class="node-title">الأهداف التفصيلية للمحاضرة:</span>
+                    <ul class="sub-list">
+                        <li>التعرف على خصائص تنسيق الخلفية[span_0](start_span)[span_0](end_span)[span_1](start_span)[span_1](end_span).</li>
+                        <li>استنتاج خصائص تنسيق الحدود[span_2](start_span)[span_2](end_span)[span_3](start_span)[span_3](end_span).</li>
+                        <li>استنتاج مفهوم الهوامش وأنواعها (الداخلية والخارجية)[span_4](start_span)[span_4](end_span)[span_5](start_span)[span_5](end_span)[span_6](start_span)[span_6](end_span).</li>
+                        <li>اكتساب المهارة في تطبيق تنسيق الحدود والخلفيات والهوامش عملياً[span_7](start_span)[span_7](end_span)[span_8](start_span)[span_8](end_span)[span_9](start_span)[span_9](end_span).</li>
+                        <li>التعرف على خاصية ID و Class وكيفية استخدامها[span_10](start_span)[span_10](end_span)[span_11](start_span)[span_11](end_span)[span_12](start_span)[span_12](end_span).</li>
+                        <li>التعرف على وسم DIV واستخداماته في تقسيم الصفحات[span_13](start_span)[span_13](end_span)[span_14](start_span)[span_14](end_span)[span_15](start_span)[span_15](end_span).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 2. خصائص الخلفية (Background) - كاملة بكل التفاصيل -->
+            <div class="branch-card" style="--branch-color: var(--c-bg);">
+                <div class="branch-header">
+                    <span>🎨</span>
+                    <span>خصائص الخلفية (background)</span>
+                </div>
+                
+                <div class="node-group">
+                    <span class="node-title">أهمية ومفهوم الخلفية:</span>
+                    <span class="node-desc">تحسين المظهر العام، جعل المحتوى أكثر وضوحاً وجاذبية، وإبراز العناصر المهمة[span_16](start_span)[span_16](end_span). تشمل خلفية الصفحة <code>body</code> وخلفية العناصر كالفقرات والعناوين[span_17](start_span)[span_17](end_span).</span>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">1. لون الخلفية (background-color):</span>
+                    <span class="node-desc">تُستخدم لتحديد لون خلفية العنصر[span_18](start_span)[span_18](end_span)[span_19](start_span)[span_19](end_span). طرق التحديد:</span>
+                    <ul class="sub-list">
+                        <li><strong>اسم اللون:</strong> <span class="code-inline">red</span>[span_20](start_span)[span_20](end_span)</li>
+                        <li><strong>الرمز السداسي عشري (Hex):</strong> مسبوق بـ # مثل <span class="code-inline">#ff0000</span>[span_21](start_span)[span_21](end_span)</li>
+                        <li><strong>نسب ألوان RGB:</strong> مثل <span class="code-inline">rgb(100%, 40%, 20%)</span>[span_22](start_span)[span_22](end_span)</li>
+                        <li><strong>قيم RGBA:</strong> تدعم الشفافية مثل <span class="code-inline">rgba(255, 0, 0, 0.5)</span>[span_23](start_span)[span_23](end_span).</li>
+                    </ul>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">2. صورة الخلفية (background-image):</span>
+                    <span class="node-desc">لإدراج صورة وفق الصيغة العامة:</span>
+                    <div class="code-block">background-image: url('image.jpg');</div>[span_24](start_span)[span_24](end_span)
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">3. تكرار صورة الخلفية (background-repeat):</span>
+                    <ul class="sub-list">
+                        <li><span class="code-inline">repeat-x</span>: تكرار أفقي فقط[span_25](start_span)[span_25](end_span).</li>
+                        <li><span class="code-inline">repeat-y</span>: تكرار عمودي فقط[span_26](start_span)[span_26](end_span).</li>
+                        <li><span class="code-inline">repeat</span>: تكرار أفقي وعمودي[span_27](start_span)[span_27](end_span).</li>
+                        <li><span class="code-inline">no-repeat</span>: عدم تكرار الصورة[span_28](start_span)[span_28](end_span).</li>
+                    </ul>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">4. موضع وتثبيت الصورة:</span>
+                    <ul class="sub-list">
+                        <li><strong>background-position:</strong> لا تعمل إلا إذا كان التكرار <span class="code-inline">no-repeat</span>[span_29](start_span)[span_29](end_span). تأخذ كلمات مفتاحية (مثل <span class="code-inline">right top</span>, <span class="code-inline">center center</span>, <span class="code-inline">left bottom</span>) أو إحداثيات نسب ومقاسات (مثل <span class="code-inline">2cm 2cm</span> أو <span class="code-inline">50% 25%</span>)[span_30](start_span)[span_30](end_span).</li>
+                        <li><strong>background-attachment:</strong> <span class="code-inline">fixed</span> (تبقى ثابتة عند التمرير) أو <span class="code-inline">scroll</span> (تتحرك مع النص)[span_31](start_span)[span_31](end_span).</li>
+                    </ul>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">الصيغة المختصرة (Shorthand):</span>
+                    <div class="code-block">background: [color] [image] [repeat] [attachment] [position];</div>[span_32](start_span)[span_32](end_span)
+                    <div class="code-block">body { background: pink url('tvtc.jpg') no-repeat fixed right top; }</div>[span_33](start_span)[span_33](end_span)
+                </div>
+            </div>
+
+            <!-- 3. خصائص الحدود (Border) - كاملة -->
+            <div class="branch-card" style="--branch-color: var(--c-border);">
+                <div class="branch-header">
+                    <span>📐</span>
+                    <span>خصائص الحدود (Border)</span>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">وظيفة الخاصية:</span>
+                    <span class="node-desc">وضع حدود لأي عنصر والتحكم بلونه، وحجمه، ونمطه[span_34](start_span)[span_34](end_span).</span>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">عناصر الخصائص الأساسية:</span>
+                    <ul class="sub-list">
+                        <li><strong>border-style (نمط الحد):</strong> <span class="code-inline">dotted</span> (منقط)، <span class="code-inline">dashed</span> (متقطع)، <span class="code-inline">solid</span> (خط مستمر)، <span class="code-inline">double</span> (مزدوج)[span_35](start_span)[span_35](end_span).</li>
+                        <li><strong>border-color (لون الحد):</strong> تحديد اللون لجميع الجوانب بأسماء الألوان، الـ Hex، أو RGB[span_36](start_span)[span_36](end_span).</li>
+                        <li><strong>border-width (سمك الحد):</strong> بكلمات جاهزة (<span class="code-inline">thin</span>, <span class="code-inline">medium</span>, <span class="code-inline">thick</span>) أو بأرقام مع وحدات قياس مثل <span class="code-inline">px</span>, <span class="code-inline">pt</span>, <span class="code-inline">cm</span>, <span class="code-inline">em</span>[span_37](start_span)[span_37](end_span).</li>
+                    </ul>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">الصيغة المختصرة للحدود:</span>
+                    <span class="node-desc">الترتيب: (العرض - النمط - اللون)</span>
+                    <div class="code-block">h1 { border: 10px dotted blue; }</div>[span_38](start_span)[span_38](end_span)
+                </div>
+            </div>
+
+            <!-- 4. خصائص الهوامش (Margin & Padding) - كاملة -->
+            <div class="branch-card" style="--branch-color: var(--c-margin);">
+                <div class="branch-header">
+                    <span>📦</span>
+                    <span>خصائص الهوامش (Margin & Padding)</span>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">أنواع الهوامش:</span>
+                    <ul class="sub-list">
+                        <li><strong>الهامش الخارجي (Margin):</strong> المسافة بين العنصر والعناصر المحيطة به في الصفحة[span_39](start_span)[span_39](end_span).</li>
+                        <li><strong>الهامش الداخلي (Padding):</strong> المسافة بين محتوى العنصر وحدوده[span_40](start_span)[span_40](end_span).</li>
+                    </ul>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">صيغ وقواعد كتابة القيم:</span>
+                    <ul class="sub-list">
+                        <li><strong>قيمة واحدة:</strong> تُطبق على جميع الجهات الأربع (مثال: <span class="code-inline">padding: 30px;</span>)[span_41](start_span)[span_41](end_span).</li>
+                        <li><strong>قيمتان:</strong> القيمة الأولى عمودياً (أعلى/أسفل) والثانية أفقياً (يسار/يمين) (مثال: <span class="code-inline">padding: 20px 10px;</span>)[span_42](start_span)[span_42](end_span).</li>
+                        <li><strong>أربع قيم:</strong> باتجاه عقارب الساعة: (أعلى - يمين - أسفل - يسار) (مثال: <span class="code-inline">margin: 10px 20px 50px 30px;</span>)[span_43](start_span)[span_43](end_span).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 5. المعرفات والفئات (Class & ID) - كاملة -->
+            <div class="branch-card" style="--branch-color: var(--c-selectors);">
+                <div class="branch-header">
+                    <span>🏷️</span>
+                    <span>تجميع العناصر (Class & ID)</span>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">المشكلة والهدف:</span>
+                    <span class="node-desc">تُستخدم لحل مشكلة تطبيق التنسيق على جميع عناوين أو فقرات الصفحة دفعة واحدة، وتسمح بتنسيق عناصر محددة دون غيرها[span_44](start_span)[span_44](end_span).</span>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">المقارنة بين الفئة والمعرف:</span>
+                    <table class="data-table">
+                        <tr>
+                            <th>الخاصية</th>
+                            <th>Class (فئة)</th>
+                            <th>ID (معرف)</th>
+                        </tr>
+                        <tr>
+                            <td><strong>الاستخدام</strong></td>
+                            <td>لتنسيقات متكررة لأكثر من عنصر[span_45](start_span)[span_45](end_span)[span_46](start_span)[span_46](end_span)</td>
+                            <td>عنصر فريد مميز لا يتكرر بالصفحة[span_47](start_span)[span_47](end_span)[span_48](start_span)[span_48](end_span)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>الرمز في CSS</strong></td>
+                            <td>يسبقه نقطة <span class="code-inline">.name</span>[span_49](start_span)[span_49](end_span)[span_50](start_span)[span_50](end_span)</td>
+                            <td>يسبقه شباك <span class="code-inline">#name</span>[span_51](start_span)[span_51](end_span)[span_52](start_span)[span_52](end_span)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>التطبيق</strong></td>
+                            <td>يمكن تطبيق أكثر من Class على عنصر واحد[span_53](start_span)[span_53](end_span)</td>
+                            <td>مُخصص للعناصر الهيكلية والـ JavaScript[span_54](start_span)[span_54](end_span)</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">تحديد عنصر محدد للفئة:</span>
+                    <div class="code-block">h1.red { color: red; }</div>[span_55](start_span)[span_55](end_span)
+                </div>
+            </div>
+
+            <!-- 6. العنصر الحاوي DIV وتقسيم الصفحة - كاملة -->
+            <div class="branch-card" style="--branch-color: var(--c-div);">
+                <div class="branch-header">
+                    <span>📂</span>
+                    <span>العنصر الحاوي (&lt;div&gt;)</span>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">المفهوم والتعريف:</span>
+                    <span class="node-desc">حاوية عامة في HTML (اختصار قسم division) ليس لها معنى دلالي خاص، تُستخدم لتجميع عناصر أخرى لغرض تنظيم وتطبيق التنسيق[span_56](start_span)[span_56](end_span).</span>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">استخدامات وسم &lt;div&gt;:</span>
+                    <ul class="sub-list">
+                        <li>تجميع العناصر (نصوص، صور، أزرار) في مجموعة واحدة[span_57](start_span)[span_57](end_span).</li>
+                        <li>التنسيق الموحد باستخدام CSS لجميع العناصر الحاوية دفعة واحدة[span_58](start_span)[span_58](end_span).</li>
+                        <li>إنشاء هياكل وتقسيمات الصفحة الرئيسية (Header, Content, Sidebar, Footer)[span_59](start_span)[span_59](end_span)[span_60](start_span)[span_60](end_span).</li>
+                        <li>تخطيط الصفحة (Layout) لبناء تخطيطات معقدة[span_61](start_span)[span_61](end_span).</li>
+                    </ul>
+                </div>
+
+                <div class="node-group">
+                    <span class="node-title">خصائص أبعاد DIV:</span>
+                    <ul class="sub-list">
+                        <li><strong>width (العرض) / height (الارتفاع):</strong> تقاس بـ <span class="code-inline">px</span>, <span class="code-inline">%</span>, <span class="code-inline">pt</span>[span_62](start_span)[span_62](end_span).</li>
+                    </ul>
+                    <div class="code-block">div { width: 500px; height: 100px; border: 3px solid #73AD21; }</div>[span_63](start_span)[span_63](end_span)[span_64](start_span)[span_64](end_span)
+                </div>
+            </div>
+
         </div>
 
-        <!-- 2. الحدود -->
-        <div class="card" style="--card-color: var(--c2);">
-            <div class="card-title"><span>📐</span> 2. خصائص الحدود (Border)</div>
-            <ul>
-                <li><strong>border-style:</strong> نمط الحد (<span class="code">dotted</span> منقط، <span class="code">dashed</span> متقطع، <span class="code">solid</span> مستمر، <span class="code">double</span> مزدوج)[span_7](start_span)[span_7](end_span).</li>
-                <li><strong>border-color:</strong> لتحديد لون الحدود للجهات الأربع[span_8](start_span)[span_8](end_span).</li>
-                <li><strong>border-width:</strong> سمك الحد بكلمات (<span class="code">thin</span>, <span class="code">medium</span>, <span class="code">thick</span>) أو قياس مثل <span class="code">10px</span>[span_9](start_span)[span_9](end_span).</li>
-                <li><strong>الصيغة المختصرة:</strong> <span class="code">border: 10px dotted blue;</span>[span_10](start_span)[span_10](end_span).</li>
-            </ul>
-        </div>
-
-        <!-- 3. الهوامش -->
-        <div class="card" style="--card-color: var(--c3);">
-            <div class="card-title"><span>📦</span> 3. الهوامش (Margin & Padding)</div>
-            <ul>
-                <li><strong>Padding (الهامش الداخلي):</strong> المسافة بين محتوى العنصر وحدوده[span_11](start_span)[span_11](end_span).</li>
-                <li><strong>Margin (الهامش الخارجي):</strong> المسافة بين العنصر والعناصر المحيطة[span_12](start_span)[span_12](end_span).</li>
-                <li><strong>قواعد القيم:</strong> 
-                    <br>• قيمة واحدة (لكل الجهات)[span_13](start_span)[span_13](end_span)
-                    <br>• قيمتان (عمودي ثم أفقياً)[span_14](start_span)[span_14](end_span)
-                    <br>• 4 قيم (أعلى، يمين، أسفل، يسار)[span_15](start_span)[span_15](end_span)
-                </li>
-            </ul>
-        </div>
-
-        <!-- 4. التطبيق العملي -->
-        <div class="card" style="--card-color: var(--c4);">
-            <div class="card-title"><span>💻</span> 4. التطبيق العملي للحدود والخلفيات</div>
-            <ul>
-                <li>ربط صفحات الـ HTML بملفات الـ CSS عبر الوسم <span class="code">&lt;link rel="stylesheet" ...&gt;</span>[span_16](start_span)[span_16](end_span).</li>
-                <li>تنسيق العناوين والفقرات والصور وتطبيق الخصائص المجتمعة للخلفيات والحدود والتهيئة العملية كما وردت بالمحاضرة[span_17](start_span)[span_17](end_span)[span_18](start_span)[span_18](end_span).</li>
-            </ul>
-        </div>
-
-        <!-- 5. ID و Class -->
-        <div class="card" style="--card-color: var(--c5);">
-            <div class="card-title"><span>🏷️</span> 5. تجميع العناصر (Class & ID)</div>
-            <ul>
-                <li><strong>Class (الفئة):</strong> لتنسيق مجموعة عناصر متكررة، يُكتب قبلها نقطة <span class="code">.red</span>[span_19](start_span)[span_19](end_span)[span_20](start_span)[span_20](end_span)[span_21](start_span)[span_21](end_span).</li>
-                <li><strong>ID (المعّرف):</strong> لعنصر فريد لا يتكرر بالصفحة، يُكتب قبله <span class="code">#heading</span>[span_22](start_span)[span_22](end_span)[span_23](start_span)[span_23](end_span)[span_24](start_span)[span_24](end_span).</li>
-                <li>يحلان مشكلة تأثير التنسيق على كل عناصر الصفحة دفعة واحدة[span_25](start_span)[span_25](end_span).</li>
-            </ul>
-        </div>
-
-        <!-- 6. عنصر DIV -->
-        <div class="card" style="--card-color: var(--c6);">
-            <div class="card-title"><span>📂</span> 6. وسم DIV وتقسيم الصفحة</div>
-            <ul>
-                <li>حاوية عامة (<span class="code">&lt;div&gt;</span>) لتجميع العناصر وتقسيم هيكل الصفحة[span_26](start_span)[span_26](end_span)[span_27](start_span)[span_27](end_span).</li>
-                <li>تُستخدم لتقسيم الموقع إلى أقسام رئيسية: رأس الصفحة (<span class="code">header</span>)، المحتوى (<span class="code">content</span>)، والتذييل (<span class="code">footer</span>)[span_28](start_span)[span_28](end_span)[span_29](start_span)[span_29](end_span).</li>
-                <li>خصائص التحكم بالأبعاد: <span class="code">width</span> و <span class="code">height</span>[span_30](start_span)[span_30](end_span).</li>
-            </ul>
-        </div>
-
+        <footer>
+            المحاضرة العاشرة (الوحدة الخامسة: خصائص لغة CSS) - قسم الحاسب وتقنية المعلومات
+        </footer>
     </div>
 
 </body>
 </html>
+
