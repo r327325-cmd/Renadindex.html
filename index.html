@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملخص الشامل والنهائي - خصائص CSS | إعداد: ريناد اللحياني</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8B5CF6;
+            --secondary: #EC4899;
+            --accent: #3B82F6;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --bg-gradient: linear-gradient(135deg, #F3E8FF 0%, #FCE7F3 100%);
+            --card-bg: #FFFFFF;
+            --text-main: #1F2937;
+            --text-muted: #4B5563;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 30px 15px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* الهيدر */
+        header {
+            background: linear-gradient(135deg, #7C3AED, #DB2777);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(124, 58, 237, 0.25);
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2.3rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.15rem;
+            opacity: 0.95;
+            margin-bottom: 15px;
+        }
+
+        .signature {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.25);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* الأقسام بناءً على الأهداف */
+        .goal-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            border-right: 8px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .goal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .goal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--border-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px dashed #F3F4F6;
+            padding-bottom: 10px;
+        }
+
+        .content-box {
+            background: #F9FAFB;
+            border-radius: 14px;
+            padding: 18px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--border-color);
+        }
+
+        .content-box h4 {
+            color: #111827;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .content-box p, .content-box ul {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        .content-box ul {
+            list-style-type: disc;
+            margin-right: 20px;
+            margin-top: 5px;
+        }
+
+        /* شاشات الأكواد */
+        .code-snippet {
+            background: #1E1E1E;
+            color: #4EC9B0;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-family: monospace;
+            direction: ltr;
+            text-align: left;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            overflow-x: auto;
+            border: 1px solid #333;
+        }
+
+        .hl {
+            color: #CE9178;
+        }
+        
+        .kw {
+            color: #569CD6;
+        }
+
+        /* تذييل الصفحة */
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- رأس الصفحة -->
+        <header>
+            <h1>🌟 الملخص الشامل والمفصل لخصائص لغة CSS</h1>
+            <p>الوحدة الخامسة - مبادئ برمجة صفحات الإنترنت (كل أهداف وتفاصيل المحاضرة)</p>
+            <div class="signature">✨ تم الإعداد خصيصاً للمتألقة: ريناد اللحياني ✨</div>
+        </header>
+
+        <!-- الهدف الأول -->
+        <div class="goal-card" style="--border-color: #EC4899;">
+            <div class="goal-title">
+                <span>🎨</span>
+                <span>الهدف الأول: خصائص تنسيق الخلفية (Background)</span>
+            </div>
+            
+            <div class="content-box" style="--border-color: #EC4899;">
+                <h4>1. مفهوم الخلفية الشامل</h4>
+                <p>لا تقتصر الخلفية في CSS على خلفية الصفحة كاملة <code>body</code> فقط، بل تشمل أيضاً خلفية العناوين، الفقرات، والأجزاء المختلفة[span_0](start_span)[span_0](end_span). ويمكن أن تكون الخلفية إما <strong>لوناً</strong> أو <strong>صورة</strong>[span_1](start_span)[span_1](end_span).</p>
+            </div>
+
+            <div class="content-box" style="--border-color: #EC4899;">
+                <h4>2. تحديد لون الخلفية (background-color)</h4>
+                <p>تستخدم لتحديد لون خلفية العناصر بعدة طرق[span_2](start_span)[span_2](end_span)[span_3](start_span)[span_3](end_span):</p>
+                <ul>
+                    <li><strong>اسم اللون:</strong> مثل <code>background-color: pink;</code>[span_4](start_span)[span_4](end_span)</li>
+                    <li><strong>النظام السداسي عشري (Hex):</strong> مسبوقاً بعلامة <code>#</code> مثل <code>background-color: #ff0000;</code>[span_5](start_span)[span_5](end_span)</li>
+                    <li><strong>نسب الألوان (RGB):</strong> مثل <code>background-color: rgb(100%, 40%, 20%);</code>[span_6](start_span)[span_6](end_span)</li>
+                </ul>
+            </div>
+
+            <div class="content-box" style="--border-color: #EC4899;">
+                <h4>3. إدراج صورة كخلفية وتكرارها وموقعها</h4>
+                <ul>
+                    <li><strong>background-image:</strong> لإدراج صورة وفق الصيغة <code>background-image: url('image.jpg');</code>[span_7](start_span)[span_7](end_span).</li>
+                    <li><strong>background-repeat:</strong> للتحكم بتكرار الصورة: <code>repeat-x</code> (أفقياً)، <code>repeat-y</code> (عمودياً)، <code>repeat</code> (كلاهما)، و <code>no-repeat</code> (بدون تكرار)[span_8](start_span)[span_8](end_span).</li>
+                    <li><strong>background-position:</strong> لتحديد مكان ظهور الصورة (لا تعمل إلا إذا كانت قيمة repeat تساوي <code>no-repeat</code>)، وتأخذ كلمات مفتاحية مثل <code>right top</code>، أو إحداثيات مثل <code>50% 25%</code>[span_9](start_span)[span_9](end_span)[span_10](start_span)[span_10](end_span).</li>
+                    <li><strong>background-attachment:</strong> لتحديد تثبيت الصورة خلف النص عند التمرير بقيمة <code>fixed</code> أو جعلها تتحرك مع النص بقيمة <code>scroll</code>[span_11](start_span)[span_11](end_span).</li>
+                </ul>
+                <div class="code-snippet">
+                    <span class="kw">body</span> {<br>
+                    &nbsp;&nbsp;<span class="hl">background</span>: pink <span class="kw">url('tvtc.jpg')</span> no-repeat fixed right top;<br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- الهدف الثاني -->
+        <div class="goal-card" style="--border-color: #3B82F6;">
+            <div class="goal-title">
+                <span>📐</span>
+                <span>الهدف الثاني: خصائص تنسيق الحدود (Border)</span>
+            </div>
+            
+            <div class="content-box" style="--border-color: #3B82F6;">
+                <h4>مفهوم وخصائص الحدود</h4>
+                <p>تستخدم الخاصية <code>border</code> لوضع حدود لأي عنصر والتحكم بلون وحجم ونمط تلك الحدود[span_12](start_span)[span_12](end_span):</p>
+                <ul>
+                    <li><strong>border-style (النمط):</strong> <code>dotted</code> (منقط)، <code>dashed</code> (متقطع)، <code>solid</code> (خط مستمر)، <code>double</code> (مزدوج)[span_13](start_span)[span_13](end_span).</li>
+                    <li><strong>border-color (اللون):</strong> تحديد لون الحدود للجوانب الأربعة بأسماء الألوان، الـ Hex، أو RGB[span_14](start_span)[span_14](end_span).</li>
+                    <li><strong>border-width (السماكة):</strong> إما بكلمات جاهزة <code>thin</code> (رفيع)، <code>medium</code> (متوسط)، <code>thick</code> (عريض)، أو بوحدات القياس مثل <code>10px</code>[span_15](start_span)[span_15](end_span).</li>
+                </ul>
+                <div class="code-snippet">
+                    <span class="kw">h1</span> {<br>
+                    &nbsp;&nbsp;<span class="hl">border</span>: 10px dotted blue;<br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- الهدف الثالث -->
+        <div class="goal-card" style="--border-color: #8B5CF6;">
+            <div class="goal-title">
+                <span>📦</span>
+                <span>الهدف الثالث: مفهوم الهوامش وأنواعها (Margin & Padding)</span>
+            </div>
+            
+            <div class="content-box" style="--border-color: #8B5CF6;">
+                <h4>أنواع الهوامش وطرق كتابتها</h4>
+                <ul>
+                    <li><strong>الهامش الخارجي (Margin):</strong> المسافة بين العنصر والعناصر المحيطة به في الصفحة[span_16](start_span)[span_16](end_span).</li>
+                    <li><strong>الهامش الداخلي (Padding):</strong> المسافة بين محتوى العنصر وحدوده الداخلية[span_17](start_span)[span_17](end_span).</li>
+                    <li><strong>صيغ القيم:</strong>
+                        <ul>
+                            <li>قيمة واحدة: تُطبق على الجهات الأربع (مثل <code>padding: 30px;</code>)[span_18](start_span)[span_18](end_span).</li>
+                            <li>قيمتان: القيمة الأولى عمودياً (أعلى/أسفل) والثانية أفقياً (يسار/يمين)[span_19](start_span)[span_19](end_span).</li>
+                            <li>أربع قيم: بترتيب عقارب الساعة (أعلى - يمين - أسفل - يسار)[span_20](start_span)[span_20](end_span).</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="code-snippet">
+                    <span class="kw">p</span> {<br>
+                    &nbsp;&nbsp;<span class="hl">padding</span>: 20px 10px;<br>
+                    &nbsp;&nbsp;<span class="hl">margin</span>: 10px 20px 50px 30px;<br>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- الهدف الرابع -->
+        <div class="goal-card" style="--border-color: #10B981;">
+            <div class="goal-title">
+                <span>💻</span>
+                <span>الهدف الرابع: اكتساب المهارة في التطبيق العملي للحدود والخلفيات والهوامش</span>
+            </div>
+            <div class="content-box" style="--border-color: #10B981;">
+                <h4>التطبيقات العملية (Practical Labs)</h4>
+                <p>تم تطبيق المهارات السريعة عبر ربط صفحات الHTML بملفات الCSS لتنسيق العناوين (مثل <code>h1</code> و <code>h3</code>) والفقرات والصور، والتحكم بألوان الخلفيات والحدود المزدوجة والمقطعة كما ورد في التطبيقين العمليين للمحاضرة[span_21](start_span)[span_21](end_span)[span_22](start_span)[span_22](end_span).</p>
+            </div>
+        </div>
+
+        <!-- الهدف الخامس -->
+        <div class="goal-card" style="--border-color: #F59E0B;">
+            <div class="goal-title">
+                <span>🏷️</span>
+                <span>الهدف الخامس: خاصية ID و Class وكيفية استخدامها</span>
+            </div>
+            
+            <div class="content-box" style="--border-color: #F59E0B;">
+                <h4>الفرق بين Class و ID وتخصيص العناصر</h4>
+                <p>لحل مشكلة تلوين أو تنسيق جميع عناصر الصفحة دفعة واحدة، نستخدم الخصائص التالية[span_23](start_span)[span_23](end_span)[span_24](start_span)[span_24](end_span):</p>
+                <ul>
+                    <li><strong>الفئة (Class):</strong> تُستخدم لتحديد مجموعة من العناصر التي تشترك في نفس التنسيق. يُكتب قبلها نقطة <code>.</code> في ملف الـ CSS (مثل <code>.red { color: red; }</code>) ويمكن تكرارها لعناصر متعددة[span_25](start_span)[span_25](end_span)[span_26](start_span)[span_26](end_span)[span_27](start_span)[span_27](end_span).</li>
+                    <li><strong>المعرف (ID):</strong> يُستخدم لتحديد عنصر واحد مميز فريد **لا يتكرر** في الصفحة. يُكتب قبله علامة الشباك <code>#</code> في ملف الـ CSS (مثل <code>#heading { color: blue; }</code>)، وهو مثالي للعناصر الهيكلية أو لتفاعل الجافاسكريبت[span_28](start_span)[span_28](end_span)[span_29](start_span)[span_29](end_span)[span_30](start_span)[span_30](end_span).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- الهدف السادس -->
+        <div class="goal-card" style="--border-color: #6366F1;">
+            <div class="goal-title">
+                <span>📂</span>
+                <span>الهدف السادس: وسم DIV واستخدامه في تقسيم صفحات الويب</span>
+            </div>
+            
+            <div class="content-box" style="--border-color: #6366F1;">
+                <h4>العنصر الحاوي (DIV) وهيكلة الموقع</h4>
+                <p>هو حاوية عامة (Division) لا تمتلك معنى دلالياً خاصاً، تُستخدم لتجميع مجموعة عناصر معاً (نصوص، صور، أزرار) وتطبيق التنسيقات عليها دفعة واحدة، وتقسيم هيكل الصفحة إلى أقسام رئيسية مثل رأس الصفحة (Header)، المحتوى (Content)، والتذييل (Footer)[span_31](start_span)[span_31](end_span)[span_32](start_span)[span_32](end_span)[span_33](start_span)[span_33](end_span).</p>
+                <ul>
+                    <li>خصائص التحكم بالأبعاد: <code>width</code> (العرض) و <code>height</code> (الارتفاع) بوحدات القياس المختلفة مثل <code>px</code> أو <code>%</code>[span_34](start_span)[span_34](end_span).</li>
+                </ul>
+                <div class="code-snippet">
+                    <span class="kw">div</span> {<br>
+                    &nbsp;&nbsp;<span class="hl">width</span>: 500px;<br>
+                    &nbsp;&nbsp;<span class="hl">height</span>: 100px;<br>
+                    &nbsp;&nbsp;<span class="hl">border</span>: 3px solid #73AD21;<br>
+                    }
+                </div>
+            </div>
+        </div>
+
+      
+      
+    </div>
+
+</body>
+</html>
